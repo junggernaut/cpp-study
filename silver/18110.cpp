@@ -3,6 +3,8 @@
 #include<cmath>
 using namespace std;
 int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
 	int n;
 	cin >> n;
 	if(n==0){
@@ -12,16 +14,12 @@ int main() {
 	int* scores = new int[n];
 	int cut = static_cast<int>(round(n * 0.15));
 	for(int i=0; i<n; ++i) {
-		int score;
-		cin >> score;
-		scores[i] = score;
+		cin >> scores[i];
 	}
-	sort(scores, scores+n, greater<int>());
+	sort(scores, scores+n);
 	double sum=0;
-	for(int i=0; i<n; ++i) {
-		if(i>=cut && i<n-cut) {
-			sum += scores[i];
-		}	
+	for(int i=cut; i<n-cut; ++i) {
+		sum += scores[i];
 	}
 	cout << static_cast<int>(round(sum/(n-cut*2)));
 	

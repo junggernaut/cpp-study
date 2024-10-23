@@ -38,10 +38,9 @@ int main() {
 	if(max_freqs.size() == 1){
 		freq = max_freqs.back();
 	} else {
-		sort(max_freqs.begin(), max_freqs.end(), greater<int>());
+		sort(max_freqs.begin(), max_freqs.end(), less<int>());
 		freq = max_freqs[1];
 	}
-	cout << sum/static_cast<double>(n);
 	cout << (round(sum/static_cast<double>(n)) == 0 ? 0 : round(sum/static_cast<double>(n))) << "\n";
 	cout << nums[n/2] << "\n";
 	cout << freq << "\n";
